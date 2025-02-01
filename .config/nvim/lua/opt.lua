@@ -60,3 +60,5 @@ vim.opt.scrolloff = 10
 
 -- Disable highlight on / search
 vim.opt.hlsearch = false
+
+vim.opt.conceallevel = 2

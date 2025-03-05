@@ -38,6 +38,7 @@ local function get_servers()
     },
     harper_ls = {},
     ocamllsp = {},
+    ruby_lsp = {},
   }
 end
 
@@ -51,6 +52,9 @@ local function get_tools()
     'mypy',
     'goimports',
     'ocamlformat',
+    'rubocop',
+    'erb-formatter',
+    'erb-lint',
   }
 end
 

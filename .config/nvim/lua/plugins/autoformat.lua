@@ -24,6 +24,8 @@ return {
         python = { 'black' },
         go = { 'goimports' },
         ocaml = { 'ocamlformat' },
+        ruby = { 'rubocop' },
+        eruby = { 'erb-formatter' },
       },
     },
   },

@@ -10,6 +10,8 @@ return {
         javascript = { 'eslint_d' },
         typescript = { 'eslint_d' },
         vue = { 'eslint_d' },
+        eruby = { 'erb_lint' },
+        ruby = { 'rubocop' },
       }
 
       vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {

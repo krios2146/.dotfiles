@@ -1,4 +1,4 @@
-local main_vault_path = '/mnt/SSD/obsidian-vault'
+local main_vault_path = '/mnt/ssd/obsidian-vault'
 
 -- Autoinsert template on note creation
 vim.api.nvim_create_autocmd('BufNewFile', {
@@ -40,7 +40,7 @@ return {
         },
         {
           name = 'test',
-          path = '/mnt/SSD/obsidian-vault-test',
+          path = '/mnt/ssd/obsidian-vault-test',
         },
       },
       completion = { min_chars = 0 },

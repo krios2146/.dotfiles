@@ -25,16 +25,16 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
 return {
   s(
     'ref',
-    fmt('const {}: Ref<{}> = ref({})', {
+    fmt('const {} = ref<{}>({})', {
       i(1, 'name'),
-      i(2, 'Type'),
+      i(2, 'type'),
       i(3, 'ref'),
     })
   ),
 
   s(
     'con',
-    fmt('const {}{} = {}\n', {
+    fmt('const {}{} = {}', {
       i(1, 'name'),
       c(2, {
         t '',
@@ -43,6 +43,8 @@ return {
       i(3, 'value'),
     })
   ),
+
+  s('dbg', fmt([[console.debug(`{}`)]], { i(1, '') })),
 
   postfix(
     { trig = '.var', match_pattern = '[%w%.%_%-%(%)]+$' },

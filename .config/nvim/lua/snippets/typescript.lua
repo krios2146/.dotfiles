@@ -19,4 +19,6 @@ return {
       { delimiters = '()' }
     )
   ),
+
+  s('dbg', fmt([[console.debug(`{}`)]], { i(1, '') })),
 }

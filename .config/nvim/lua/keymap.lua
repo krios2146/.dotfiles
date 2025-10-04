@@ -1,5 +1,13 @@
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = '[D]iagnostic [P]revious message' })
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { desc = '[D]iagnostic [N]ext message' })
+local function jump_down()
+  vim.diagnostic.jump { count = -1, float = true }
+end
+
+local function jump_up()
+  vim.diagnostic.jump { count = 1, float = true }
+end
+
+vim.keymap.set('n', '<leader>dp', jump_down, { desc = '[D]iagnostic [P]revious message' })
+vim.keymap.set('n', '<leader>dn', jump_up, { desc = '[D]iagnostic [N]ext message' })
 vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, { desc = '[D]iagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = '[D]iagnostic [Q]uickfix list' })
 

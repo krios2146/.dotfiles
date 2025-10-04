@@ -1,4 +1,3 @@
--- Autopairs parenthesis, quotes, brackets, etc.
 return {
   {
     'windwp/nvim-autopairs',

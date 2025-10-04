@@ -3,14 +3,14 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
-require 'opt'
-require 'keymap'
+require 'opts'
+require 'keymaps_default'
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight on yank',
   group = vim.api.nvim_create_augroup('highlight-on-yank', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 
@@ -25,11 +25,20 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     lazypath,
   }
 end
----@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup 'plugins'
+require('lazy').setup {
+  spec = {
+    { import = 'plugins' },
+  },
+  checker = {
+    enabled = { true },
+    notify = { true },
+  },
+}
 
-vim.cmd.colorscheme 'ayu-dark'
+require 'keymaps_plugins'
+require 'lsp_setup'
+require 'autocmds'
 
 -- vim: ts=2 sts=2 sw=2 et

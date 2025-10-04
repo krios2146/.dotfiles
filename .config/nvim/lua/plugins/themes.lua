@@ -6,16 +6,17 @@ return {
   { 'catppuccin/nvim', name = 'catppuccin' },
   {
     'Shatur/neovim-ayu',
+    opts = {
+      overrides = {
+        CursorLine = { bg = '#111822' },
+        CursorLineNr = { bg = '#111822' },
+        CursorColumn = { bg = '#111822' },
+        ColorColumn = { bg = '#111822' },
+        CursorLineConceal = { bg = '#111822' },
+      },
+    },
     config = function()
-      require('ayu').setup {
-        overrides = {
-          CursorLine = { bg = '#111822' },
-          CursorLineNr = { bg = '#111822' },
-          CursorColumn = { bg = '#111822' },
-          ColorColumn = { bg = '#111822' },
-          CursorLineConceal = { bg = '#111822' },
-        },
-      }
+      vim.cmd.colorscheme 'ayu-dark'
     end,
   },
   { 'nanotech/jellybeans.vim' },

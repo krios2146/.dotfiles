@@ -10,10 +10,9 @@ return {
         end,
       },
     },
-    -- mappings are in the nvim-cmp plugin config
     config = function()
       require('luasnip').setup {
-        update_events = { 'TextChanged', 'TextChangedI' }, -- live update of dynamic snippet nodes
+        update_events = { 'TextChanged', 'TextChangedI' }, -- Live update of dynamic snippet nodes
         ext_opts = {
           [require('luasnip.util.types').choiceNode] = {
             active = {
@@ -22,7 +21,6 @@ return {
           },
         },
       }
-      -- sourcing snippets directory
       require('luasnip.loaders.from_lua').load { paths = { '~/.config/nvim/lua/snippets' } }
     end,
   },

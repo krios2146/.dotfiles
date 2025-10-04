@@ -1,34 +1,68 @@
--- Plugins with no additional configuration goes here
 return {
-  require 'themes',
   { 'tpope/vim-sleuth' }, -- Detect `tabstop` and `shiftwidth` automatically
-  { 'numToStr/Comment.nvim', opts = {} }, -- Linewise/blockwise comments
-  { 'windwp/nvim-ts-autotag', opts = {} }, -- Same as `autopairs` but for HTML tags
-  { 'wakatime/vim-wakatime' }, -- Wakatime - time tracker
-  { 'tpope/vim-fugitive' }, -- Git integration
-  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = { enabled = false } }, -- indentation guidelines
+  { 'numToStr/Comment.nvim', opts = {} },
+  { 'windwp/nvim-ts-autotag', opts = {} },
+  { 'wakatime/vim-wakatime' },
+  { 'tpope/vim-fugitive' },
+  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = { enabled = false } },
   { 'rktjmp/lush.nvim' },
-
-  -- Highlight todo, notes, etc. in the comments
+  { 'folke/which-key.nvim', event = 'VeryLazy' },
+  { 'stevearc/dressing.nvim', opts = {} },
+  {
+    'nvim-tree/nvim-tree.lua',
+    lazy = false,
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {
+      actions = {
+        open_file = { quit_on_open = true },
+      },
+    },
+  },
+  {
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    opts = {
+      integrations = {
+        ['mason-lspconfig'] = true,
+      },
+      run_on_start = true,
+    },
+    dependencies = {
+      'mason-org/mason-lspconfig.nvim',
+    },
+  },
+  {
+    'mason-org/mason-lspconfig.nvim',
+    dependencies = {
+      { 'mason-org/mason.nvim', opts = {} },
+      'neovim/nvim-lspconfig',
+    },
+  },
+  {
+    'folke/trouble.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      { 'j-hui/fidget.nvim', opts = {} }, -- Useful status updates for LSPs
+    },
+  },
   {
     'folke/todo-comments.nvim',
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
-
-  -- Collection of various small independent plugins/modules
   {
     'echasnovski/mini.nvim',
     config = function()
-      require('mini.ai').setup { n_lines = 500 } -- Better 'around' & 'inner' experience
-      require('mini.surround').setup() -- Adds mappings for surround text with ", (, etc.
+      require('mini.ai').setup { n_lines = 500 }
+      require('mini.surround').setup()
     end,
   },
-
-  -- Different UI for the `vim.ui.input`
   {
-    'stevearc/dressing.nvim',
-    opts = {},
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = { enabled = false, scope = { show_start = false, show_end = false } },
   },
 }

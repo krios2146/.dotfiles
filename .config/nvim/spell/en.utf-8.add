@@ -78,3 +78,8 @@ DFA
 Kleene
 CFG
 nonterminals
+postgres
+sslmode
+SAVOIR
+addr
+timestamp
